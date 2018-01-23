@@ -19,7 +19,7 @@ class Api::V1::MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:user_id, :trade_id, :content)
+    params.require(:message).permit(:user_id, :trade_id, :receiver_id, :content)
   end
 
 

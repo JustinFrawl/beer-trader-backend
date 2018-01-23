@@ -11,7 +11,7 @@ class Api::V1::TradeBeersController < ApplicationController
   end
 
   def create
-    @tradebeer = TradeBeer.create(tradebeer_params)
+    @tradebeer = TradeBeer.find_or_create_by(tradebeer_params)
     render json: @tradebeer
   end
 

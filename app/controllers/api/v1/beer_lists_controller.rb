@@ -10,7 +10,7 @@ class Api::V1::BeerListsController < ApplicationController
   end
 
   def create
-    @beerlist = BeerList.create(beerlist_params)
+    @beerlist = BeerList.find_or_create_by(beerlist_params)
     render json: @beerlist
   end
 
@@ -18,7 +18,7 @@ class Api::V1::BeerListsController < ApplicationController
   private
 
   def beerlist_params
-    params.require(:beerlist).permit(:user_id, :beer_id)
+    params.require(:beer_list).permit(:user_id, :beer_id)
   end
 
 

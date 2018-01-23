@@ -6,10 +6,8 @@ class ApplicationController < ActionController::API
 
     def current_user
       # authenticate_or_request_with_http_token do |jwt_token, options|
-
         begin
           decoded_token = JWT.decode(token, "e45c98dcea1d369dab4a7fac9fe863c2c0e95237bdc8352c5ddd47fe9f0bd9e53f318e2bc9c587a40b3e303760a03e3a6c2f867e452aff260d6f49efa7766b1f", "HS256")
-
         rescue JWT::DecodeError
           return nil
         end
@@ -18,7 +16,6 @@ class ApplicationController < ActionController::API
         if decoded_token[0]["user_id"]
           @current_user ||= User.find(decoded_token[0]["user_id"])
         end
-      # end
     end
 
 
