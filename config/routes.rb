@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :brewers
   resources :breweries
   namespace :api do
     namespace :v1 do
